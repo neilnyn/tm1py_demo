@@ -1,0 +1,5 @@
+2024-04-30 11:46:42,168 -root -INFO - {Element:{"Name": "PL107 - \u7814\u53d1\u8d39\u7528", "Type": "Consolidated"}, Element:{"Name": "PL103", "Type": "Numeric"}}
+2024-04-30 11:47:22,683 -root -INFO - test
+2024-04-30 13:29:12,602 -root -INFO - {Element:{"Name": "PL107 - \u7814\u53d1\u8d39\u7528", "Type": "Consolidated"}, Element:{"Name": "PL103", "Type": "Numeric"}}
+2024-04-30 13:36:29,149 -root -INFO - Account PL Clonenew updated bu dimension generates diff:{Element:{"Name": "PL107 - \u7814\u53d1\u8d39\u7528", "Type": "Consolidated"}, Element:{"Name": "PL103", "Type": "Numeric"}}
+2024-04-30 13:36:49,040 -root -INFO - Account PL Clone new updated bu dimension generates diff:{Element:{"Name": "PL107 - \u7814\u53d1\u8d39\u7528", "Type": "Consolidated"}, Element:{"Name": "PL103", "Type": "Numeric"}}
