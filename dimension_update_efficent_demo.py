@@ -72,25 +72,40 @@ def filter_hierarchy(parent_map,element_attributes,root_node):
             filtered_attributes_map[parent] = element_attributes.get(parent, "")
             for child in children:
                 filtered_attributes_map[child] = element_attributes.get(child, "")
+    # transfer filtered_parent_map to tuple list
+    filtered_parent_map_edges = [(parent, child)for parent, children in filtered_pararent_map.items() for child in children]
 
-    return filtered_pararent_map, filtered_attributes_map
+    return filtered_pararent_map, filtered_parent_map_edges,filtered_attributes_map
 # unwind before update
-def unwind_consolidated_element(tm1,dimension_name,element:str,hierarchy_target:object):
+def unwind_consolidated_element(tm1,dimension_name,element:str,edges,hierarchy_target:object):
     element_obj = tm1.elements.get(dimension_name,dimension_name,element)
     # only unwind if element is consolidated
     if element_obj.element_type.name == 'CONSOLIDATED':
         # get all descendants of element
         descendants_edges = hierarchy_target.get_descendants_edges(element,recursive=True)
+        descendants_edges_list = [key for key in descendants_edges]
+        descendants_edges_set = set(descendants_edges_list)
         # unwind element
-        for key in descendants_edges:
-            hierarchy_target.remove_edge(key[0],key[1])
+        csv_edges_set = set(edges)
+        edges_need_unwind = descendants_edges_set - csv_edges_set
+        # only unwind if there are edges need to unwind
+        for edge in edges_need_unwind:
+            hierarchy_target.remove_edge(edge[0],edge[1])
+
     return descendants_edges
 # update dimension
-def update_hierarchy_from_edges_with_attr(tm1,dimension_name,parent_map,element_attributes,consolidated_element:str):
+def update_hierarchy_from_edges_with_attr(tm1,dimension_name,parent_map,edges,element_attributes,consolidated_element:str):
     # get target hierarchy
     hierarchy_target = tm1.dimensions.hierarchies.get(dimension_name,dimension_name)
     # unwind
     descendants_edges = unwind_consolidated_element(tm1,dimension_name,consolidated_element,hierarchy_target)
+    descendants_edges_list = [key for key in descendants_edges]
+    descendants_edges_set = set(descendants_edges_list)
+    # edges from csv file to set
+    csv_edges_set = set(edges)
+    # edges need to update
+    edges_need_update = csv_edges_set - descendants_edges_set
+    # update edges
     # descendants_edges to set of all elements
     def prepare_edges_set(edges):
         all_elements = set()
@@ -100,17 +115,19 @@ def update_hierarchy_from_edges_with_attr(tm1,dimension_name,parent_map,element_
                 all_elements.add(child)
         return all_elements
     descendants_set = prepare_edges_set(descendants_edges)
-    # update hierarchy
+    # add elements to hierarchy if not exist
     for parent, children in parent_map.items():
         if parent =='':
             continue
         if not parent in descendants_set:
-            if not tm1.elements.exists(dimension_name,dimension_name,child):
+            if not tm1.elements.exists(dimension_name,dimension_name,parent):
                 hierarchy_target.add_element(parent,'Numeric')
         for child in children:
             if not child in descendants_set:
-                hierarchy_target.add_element(child,'Numeric')
-            hierarchy_target.add_edge(parent,child,1)
+                if not tm1.elements.exists(dimension_name, dimension_name, child):
+                    hierarchy_target.add_element(child,'Numeric')
+    for edge in edges_need_update:
+        hierarchy_target.add_edge(edge[0],edge[1],1)
     # add attributes
     attrs_list = [{'desc':'String'},{'parent':'String'}]
     for attr in attrs_list:
@@ -143,11 +160,11 @@ if __name__ == '__main__':
     # read csv file
     parent_map, element_attributes = read_csv_file(args.file_path)
     # filter hierarchy
-    filtered_parent_map, filtered_element_attributes = filter_hierarchy(parent_map,element_attributes,args.root_node)
+    filtered_parent_map, edges,filtered_element_attributes = filter_hierarchy(parent_map,element_attributes,args.root_node)
     # update dimension
     with get_tm1_service('tm1srv01') as tm1:
         try:
-            update_hierarchy_from_edges_with_attr(tm1,args.dimension_name,filtered_parent_map,filtered_element_attributes,args.root_node)
+            update_hierarchy_from_edges_with_attr(tm1,args.dimension_name,filtered_parent_map,edges,filtered_element_attributes,args.root_node)
 
         except Exception as e:
             raise e
