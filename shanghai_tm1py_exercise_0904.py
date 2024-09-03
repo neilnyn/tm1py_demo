@@ -3,7 +3,7 @@ import argparse
 import csv
 import configparser
 from TM1py.Services import TM1Service
-from TM1py.Objects import Dimension, Hierarchy, Element,Cube
+from TM1py.Objects import Dimension, Hierarchy, Element,Cube,ElementAttribute
 from collections import defaultdict
 from TM1py.Utils import CaseAndSpaceInsensitiveTuplesDict
 import datetime
@@ -38,6 +38,7 @@ def get_tm1_service(instance_name):
 # build dimensions from csv file by hierarchy method by with open csv method
 def read_csv_file(file_path):
     hierarchy_data = []
+    element_attributes_map = {}
     with open(file_path, 'r') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
@@ -45,7 +46,10 @@ def read_csv_file(file_path):
                 'child': row['child'],
                 'parent': row['parent']
             })
-    return hierarchy_data
+
+            element_attributes_map[row['child']] = row['child_description']
+
+    return hierarchy_data, element_attributes_map
 
 # generate year hierarchy data
 def year_hierarchy_data():
@@ -172,6 +176,20 @@ def buid_cube(tm1, cube_name, dimensions:list):
         new_cube = Cube(name=cube_name, dimensions=dimensions)
         tm1.cubes.create(new_cube)
 
+
+# update attribute and attribute value
+def update_attribute_and_attribute_value(tm1, dimension_name, attribute_name:str,attribute_type:str ,attribute_map:dict):
+    # Check if attribute exists, if not create it
+    if not tm1.elements.attribute_cube_exists(dimension_name):
+        new_attribute = ElementAttribute(attribute_name, attribute_type)
+        tm1.elements.create_element_attribute(dimension_name,dimension_name,new_attribute)
+    # update attribute value
+    cellset = {}
+    for element, attribute_value in attribute_map.items():
+        cellset[(element, attribute_name)] = attribute_value
+    tm1.cubes.cells.write_through_cellset(cube_name="}ElementAttributes_"+dimension_name, cellset_as_dict=cellset)
+
+
 # Main execution
 if __name__ == "__main__":
     with get_tm1_service("Hello_World") as tm1:
@@ -180,7 +198,7 @@ if __name__ == "__main__":
         csv_file_path = "product-hierarchy-csv.csv"
         # Dimension names
         dimension_name = "Product"
-        hierarchy_data = read_csv_file(csv_file_path)
+        hierarchy_data , element_attributes_map = read_csv_file(csv_file_path)
         update_or_create_dimension_use_element_api(tm1, dimension_name, hierarchy_data)
         update_or_create_dimension_use_hierarchy_api(tm1, dimension_name, hierarchy_data)
         #update Year
@@ -199,4 +217,8 @@ if __name__ == "__main__":
         dimensions = ["Product", "Year", "Month", "Day","Measure"]
         cube_name = "Product_Sales"
         buid_cube(tm1, cube_name, dimensions)
-
+        # Update attribute and attribute value
+        attribute_name = "Description"
+        attribute_type = "Alias"
+        update_attribute_and_attribute_value(tm1, dimension_name, attribute_name, attribute_type, element_attributes_map)
+        tm1.elements.add_elements()
