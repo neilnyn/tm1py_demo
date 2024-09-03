@@ -1,0 +1,109 @@
+child,child_description,parent
+Electronics,Electronics Category,
+Computers,Computers Sub-Category,Electronics
+Laptops,Laptops Product Group,Computers
+MacBook Pro,High-end Apple Laptop,Laptops
+Dell XPS,Premium Windows Laptop,Laptops
+Lenovo ThinkPad,Business-oriented Laptop,Laptops
+Desktops,Desktops Product Group,Computers
+iMac,All-in-One Apple Desktop,Desktops
+HP Pavilion,Home Use Desktop,Desktops
+Dell Optiplex,Business Desktop,Desktops
+Smartphones,Smartphones Product Group,Electronics
+iPhone,Apple Smartphone,Smartphones
+Samsung Galaxy,Android Flagship Smartphone,Smartphones
+Google Pixel,Google's Smartphone,Smartphones
+Tablets,Tablets Product Group,Electronics
+iPad,Apple Tablet,Tablets
+Samsung Galaxy Tab,Android Tablet,Tablets
+Microsoft Surface,Windows Tablet,Tablets
+TVs,TVs Product Group,Electronics
+OLED TV,High-end OLED Television,TVs
+QLED TV,Premium QLED Television,TVs
+4K UHD TV,Standard 4K Television,TVs
+Appliances,Appliances Category,
+Kitchen,Kitchen Appliances Sub-Category,Appliances
+Refrigerators,Refrigerators Product Group,Kitchen
+French Door Fridge,Large Capacity Refrigerator,Refrigerators
+Side-by-Side Fridge,Dual Door Refrigerator,Refrigerators
+Mini Fridge,Compact Refrigerator,Refrigerators
+Ovens,Ovens Product Group,Kitchen
+Convection Oven,Advanced Cooking Oven,Ovens
+Toaster Oven,Small Countertop Oven,Ovens
+Microwave Oven,Quick Heating Oven,Ovens
+Dishwashers,Dishwashers Product Group,Kitchen
+Built-in Dishwasher,Integrated Kitchen Dishwasher,Dishwashers
+Portable Dishwasher,Movable Dishwashing Unit,Dishwashers
+Countertop Dishwasher,Compact Dishwasher,Dishwashers
+Laundry,Laundry Appliances Sub-Category,Appliances
+Washers,Washing Machines Product Group,Laundry
+Front Load Washer,Efficient Front Loading Washer,Washers
+Top Load Washer,Traditional Top Loading Washer,Washers
+Compact Washer,Small Space Washing Machine,Washers
+Dryers,Clothes Dryers Product Group,Laundry
+Gas Dryer,Natural Gas Powered Dryer,Dryers
+Electric Dryer,Electrically Powered Dryer,Dryers
+Heat Pump Dryer,Energy Efficient Dryer,Dryers
+Furniture,Furniture Category,
+Living Room,Living Room Furniture Sub-Category,Furniture
+Sofas,Sofas Product Group,Living Room
+Sectional Sofa,Modular Seating Sofa,Sofas
+Loveseat,Small Two-Seat Sofa,Sofas
+Recliner Sofa,Adjustable Reclining Sofa,Sofas
+Coffee Tables,Coffee Tables Product Group,Living Room
+Glass Coffee Table,Modern Glass Table,Coffee Tables
+Wooden Coffee Table,Traditional Wooden Table,Coffee Tables
+Lift-Top Coffee Table,Adjustable Height Table,Coffee Tables
+TV Stands,TV Stands Product Group,Living Room
+Corner TV Stand,Space-Saving TV Unit,TV Stands
+Entertainment Center,Large TV Storage Unit,TV Stands
+Floating TV Stand,Wall-Mounted TV Unit,TV Stands
+Bedroom,Bedroom Furniture Sub-Category,Furniture
+Beds,Beds Product Group,Bedroom
+Platform Bed,Low Profile Bed Frame,Beds
+Canopy Bed,Four-Poster Elegant Bed,Beds
+Storage Bed,Bed with Built-in Storage,Beds
+Dressers,Dressers Product Group,Bedroom
+Vertical Dresser,Tall Clothing Storage,Dressers
+Horizontal Dresser,Wide Clothing Storage,Dressers
+Combo Dresser,Dresser with Mirror,Dressers
+Nightstands,Nightstands Product Group,Bedroom
+2-Drawer Nightstand,Bedside Table with Storage,Nightstands
+Open Shelf Nightstand,Simple Bedside Table,Nightstands
+Charging Nightstand,Nightstand with Power Outlets,Nightstands
+Dining Room,Dining Room Furniture Sub-Category,Furniture
+Dining Tables,Dining Tables Product Group,Dining Room
+Extendable Dining Table,Adjustable Size Table,Dining Tables
+Round Dining Table,Circular Dining Table,Dining Tables
+Glass Dining Table,Modern Glass Eating Surface,Dining Tables
+Dining Chairs,Dining Chairs Product Group,Dining Room
+Upholstered Dining Chair,Fabric Covered Chair,Dining Chairs
+Wooden Dining Chair,Traditional Wooden Chair,Dining Chairs
+Metal Dining Chair,Modern Metal Seating,Dining Chairs
+Buffets,Buffets Product Group,Dining Room
+Sideboard Buffet,Storage Cabinet with Short Legs,Buffets
+Server Buffet,Narrow Dining Room Storage,Buffets
+China Cabinet,Display Case for Dinnerware,Buffets
+Home Office,Home Office Furniture Sub-Category,Furniture
+Desks,Desks Product Group,Home Office
+Writing Desk,Simple Work Surface,Desks
+Computer Desk,Tech-Friendly Workstation,Desks
+Standing Desk,Height Adjustable Desk,Desks
+Office Chairs,Office Chairs Product Group,Home Office
+Ergonomic Chair,Comfort-Focused Task Chair,Office Chairs
+Executive Chair,High-Back Luxury Chair,Office Chairs
+Drafting Chair,Tall Chair for Standing Desks,Office Chairs
+Bookcases,Bookcases Product Group,Home Office
+Ladder Bookcase,Angled Shelf Unit,Bookcases
+Standard Bookcase,Traditional Vertical Shelving,Bookcases
+Corner Bookcase,Space-Saving Shelf Unit,Bookcases
+Outdoor,Outdoor Furniture Category,
+Patio,Patio Furniture Sub-Category,Outdoor
+Patio Sets,Patio Furniture Sets Product Group,Patio
+Dining Set,Outdoor Table and Chairs Set,Patio Sets
+Conversation Set,Outdoor Lounge Furniture Set,Patio Sets
+Bistro Set,Small Outdoor Cafe Style Set,Patio Sets
+Patio Chairs,Individual Patio Chairs Product Group,Patio
+Adirondack Chair,Classic Slanted Back Chair,Patio Chairs
+Wicker Chair,Woven Outdoor Seating,Patio Chairs
+Folding Chair,Collapsible Outdoor Chair,Patio Chairs
