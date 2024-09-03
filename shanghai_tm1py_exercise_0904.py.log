@@ -1,0 +1,18 @@
+2024-09-03 02:58:05,745 - update_or_create_dimension_use_element_api - INFO - StartUpdate or create dimension using element API
+2024-09-03 02:58:07,197 - update_or_create_dimension_use_element_api - INFO - EndUpdate or create dimension using element API
+2024-09-03 02:58:07,197 - update_or_create_dimension_use_element_api - INFO - Update or create dimension using element APIDuration: 0:00:01.452450
+2024-09-03 02:58:07,197 - update_or_create_dimension_use_hierarchy_api - INFO - StartUpdate or create dimension using hierarchy API
+2024-09-03 02:58:07,213 - update_or_create_dimension_use_hierarchy_api - INFO - EndUpdate or create dimension using hierarchy API
+2024-09-03 02:58:07,213 - update_or_create_dimension_use_hierarchy_api - INFO - Update or create dimension using hierarchy APIDuration: 0:00:00.016065
+2024-09-03 02:58:07,213 - update_or_create_dimension_use_hierarchy_api - INFO - StartUpdate or create dimension using hierarchy API
+2024-09-03 02:58:07,224 - update_or_create_dimension_use_hierarchy_api - INFO - EndUpdate or create dimension using hierarchy API
+2024-09-03 02:58:07,224 - update_or_create_dimension_use_hierarchy_api - INFO - Update or create dimension using hierarchy APIDuration: 0:00:00.010958
+2024-09-03 02:58:07,224 - update_or_create_dimension_use_hierarchy_api - INFO - StartUpdate or create dimension using hierarchy API
+2024-09-03 02:58:07,233 - update_or_create_dimension_use_hierarchy_api - INFO - EndUpdate or create dimension using hierarchy API
+2024-09-03 02:58:07,233 - update_or_create_dimension_use_hierarchy_api - INFO - Update or create dimension using hierarchy APIDuration: 0:00:00.008974
+2024-09-03 02:58:07,233 - update_or_create_dimension_use_hierarchy_api - INFO - StartUpdate or create dimension using hierarchy API
+2024-09-03 02:58:07,247 - update_or_create_dimension_use_hierarchy_api - INFO - EndUpdate or create dimension using hierarchy API
+2024-09-03 02:58:07,247 - update_or_create_dimension_use_hierarchy_api - INFO - Update or create dimension using hierarchy APIDuration: 0:00:00.013991
+2024-09-03 02:58:07,247 - update_or_create_dimension_use_hierarchy_api - INFO - StartUpdate or create dimension using hierarchy API
+2024-09-03 02:58:07,257 - update_or_create_dimension_use_hierarchy_api - INFO - EndUpdate or create dimension using hierarchy API
+2024-09-03 02:58:07,257 - update_or_create_dimension_use_hierarchy_api - INFO - Update or create dimension using hierarchy APIDuration: 0:00:00.010000
